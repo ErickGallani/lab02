@@ -9,7 +9,11 @@ Scenario: Sum two numbers
 	Then the result should be 6 
 	
 Scenario Outline: Multiply two numbers 
-	Given I have a calculator 
+	Given I have a calculator
+	 | firstNumber | secondNumber | result |
+		|	1         |	0			 |  0     |
+		|	2		  |	2			 |  4     |
+		|	3		  |	10			 |  30    |
 	When I multiply <firstNumber> with <secondNumber> 
 	Then the result should be <result> 
 	
