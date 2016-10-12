@@ -1,125 +1,87 @@
-$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("features/CalcFreteTempo.feature");
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("features/ConsultStatusEntrega.feature");
 formatter.feature({
-  "comments": [
-    {
-      "line": 1,
-      "value": "# encoding: UTF-8"
-    }
-  ],
-  "line": 2,
-  "name": "Calcular frete e tempo de entrega previsto",
+  "line": 1,
+  "name": "Consultar Status entrega",
   "description": "",
-  "id": "calcular-frete-e-tempo-de-entrega-previsto",
+  "id": "consultar-status-entrega",
   "keyword": "Feature"
 });
 formatter.scenario({
-  "line": 4,
-  "name": "Eu como usuario desejo simular o calculo do frete que sera cobrado pela do entrega do pedido e o tempo de entrega previsto",
+  "line": 3,
+  "name": "Usuario consulta o status de entrega do seu pedido",
   "description": "",
-  "id": "calcular-frete-e-tempo-de-entrega-previsto;eu-como-usuario-desejo-simular-o-calculo-do-frete-que-sera-cobrado-pela-do-entrega-do-pedido-e-o-tempo-de-entrega-previsto",
+  "id": "consultar-status-entrega;usuario-consulta-o-status-de-entrega-do-seu-pedido",
   "type": "scenario",
   "keyword": "Scenario"
 });
 formatter.step({
-  "line": 5,
-  "name": "que solicito ao sistema para calcular o frete e o tempo de entrega",
+  "line": 4,
+  "name": "usuario esta logado no sistema",
   "keyword": "Given "
 });
 formatter.step({
-  "line": 6,
-  "name": "o sistema envia os dados do produto \"\u003cproduto\u003e\"",
-  "rows": [
-    {
-      "cells": [
-        "\u003cproduto\u003e",
-        "largura",
-        "altura",
-        "comprimento"
-      ],
-      "line": 7
-    },
-    {
-      "cells": [
-        "itemA",
-        "1",
-        "20",
-        "1.5",
-        "4.0"
-      ],
-      "line": 8
-    },
-    {
-      "cells": [
-        "itemB",
-        "2",
-        "30",
-        "2.5",
-        "5.0"
-      ],
-      "line": 9
-    },
-    {
-      "cells": [
-        "itemC",
-        "3",
-        "40",
-        "3.5",
-        "6.0"
-      ],
-      "line": 10
-    }
-  ],
+  "line": 5,
+  "name": "usuario possui codigo de rastreamento associado ao produto",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 7,
+  "name": "usuario fornece codigo de rastreamento associado ao produto ao sistema",
   "keyword": "When "
 });
 formatter.step({
-  "line": 11,
-  "name": "envia o tipo de entrega \"\u003ctipoEntrega\u003e\"",
-  "rows": [
-    {
-      "cells": [
-        "\u003ctipoEntrega\u003e"
-      ],
-      "line": 12
-    },
-    {
-      "cells": [
-        "PAC"
-      ],
-      "line": 13
-    },
-    {
-      "cells": [
-        "SEDEX"
-      ],
-      "line": 14
-    },
-    {
-      "cells": [
-        "SEDEX10"
-      ],
-      "line": 15
-    }
-  ],
-  "keyword": "And "
-});
-formatter.step({
-  "line": 16,
-  "name": "envia o endereco \u0027CEP\u0027",
-  "keyword": "And "
-});
-formatter.step({
-  "line": 17,
-  "name": "o sistema recebe o \u0027valor_do_frete\u0027 e \u0027tempo_de_entrega\u0027",
+  "line": 9,
+  "name": "sistema deve solicitar ao Correio o status da entrega",
   "keyword": "Then "
-});
-formatter.step({
-  "line": 18,
-  "name": "os valores sao salvos no sistema",
-  "keyword": "And "
 });
 formatter.match({});
 formatter.result({
   "status": "undefined"
+});
+formatter.match({});
+formatter.result({
+  "status": "undefined"
+});
+formatter.match({});
+formatter.result({
+  "status": "undefined"
+});
+formatter.match({});
+formatter.result({
+  "status": "undefined"
+});
+formatter.scenario({
+  "line": 12,
+  "name": "Sistema ordena dos Correios o Status de Entrega do Pedido",
+  "description": "",
+  "id": "consultar-status-entrega;sistema-ordena-dos-correios-o-status-de-entrega-do-pedido",
+  "type": "scenario",
+  "keyword": "Scenario"
+});
+formatter.step({
+  "line": 14,
+  "name": "usuario esta logado no sistema",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 15,
+  "name": "usuario fornece o status de entrega do seu pedido",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 17,
+  "name": "o Sistema fornece aos Correios o Codigo de Rastreamento associado ao Produto",
+  "keyword": "When "
+});
+formatter.step({
+  "line": 19,
+  "name": "os Correios fornece ao Sistema o Status de entrega do pedido",
+  "keyword": "Then "
+});
+formatter.step({
+  "line": 20,
+  "name": "o Sistema exibe o Status de Entrega do Pedido ao Usuario",
+  "keyword": "And "
 });
 formatter.match({});
 formatter.result({
