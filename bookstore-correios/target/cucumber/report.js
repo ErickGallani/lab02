@@ -1,481 +1,144 @@
-$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("features/Calculadora.feature");
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("features/CalcFreteTempo.feature");
 formatter.feature({
-  "line": 1,
-  "name": "Calculator",
-  "description": "As a user\nI want to use a basic calculator\nSo that I dont need to calculate myself",
-  "id": "calculator",
+  "comments": [
+    {
+      "line": 1,
+      "value": "# encoding: UTF-8"
+    }
+  ],
+  "line": 2,
+  "name": "Calcular frete e tempo de entrega previsto",
+  "description": "",
+  "id": "calcular-frete-e-tempo-de-entrega-previsto",
   "keyword": "Feature"
 });
-formatter.before({
-  "duration": 3008832,
-  "status": "passed"
-});
 formatter.scenario({
-  "line": 6,
-  "name": "Sum two numbers",
+  "line": 4,
+  "name": "Eu como usuario desejo simular o calculo do frete que sera cobrado pela do entrega do pedido e o tempo de entrega previsto",
   "description": "",
-  "id": "calculator;sum-two-numbers",
+  "id": "calcular-frete-e-tempo-de-entrega-previsto;eu-como-usuario-desejo-simular-o-calculo-do-frete-que-sera-cobrado-pela-do-entrega-do-pedido-e-o-tempo-de-entrega-previsto",
   "type": "scenario",
   "keyword": "Scenario"
 });
 formatter.step({
-  "line": 7,
-  "name": "I have a calculator",
+  "line": 5,
+  "name": "que solicito ao sistema para calcular o frete e o tempo de entrega",
   "keyword": "Given "
 });
 formatter.step({
-  "line": 8,
-  "name": "I sum 3 with 3",
-  "keyword": "When "
-});
-formatter.step({
-  "line": 9,
-  "name": "the result should be 6",
-  "keyword": "Then "
-});
-formatter.match({
-  "location": "CalculadoraSteps.i_have_a_calculator()"
-});
-formatter.result({
-  "duration": 79884747,
-  "status": "passed"
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "3",
-      "offset": 6
-    },
-    {
-      "val": "3",
-      "offset": 13
-    }
-  ],
-  "location": "CalculadoraSteps.i_sum_with(int,int)"
-});
-formatter.result({
-  "duration": 1187556,
-  "status": "passed"
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "6",
-      "offset": 21
-    }
-  ],
-  "location": "CalculadoraSteps.the_result_should_be(int)"
-});
-formatter.result({
-  "duration": 101695,
-  "status": "passed"
-});
-formatter.scenarioOutline({
-  "line": 11,
-  "name": "Multiply two numbers",
-  "description": "",
-  "id": "calculator;multiply-two-numbers",
-  "type": "scenario_outline",
-  "keyword": "Scenario Outline"
-});
-formatter.step({
-  "line": 12,
-  "name": "I have a calculator",
-  "keyword": "Given "
-});
-formatter.step({
-  "line": 13,
-  "name": "I multiply \u003cfirstNumber\u003e with \u003csecondNumber\u003e",
-  "keyword": "When "
-});
-formatter.step({
-  "line": 14,
-  "name": "the result should be \u003cresult\u003e",
-  "keyword": "Then "
-});
-formatter.examples({
-  "line": 16,
-  "name": "",
-  "description": "",
-  "id": "calculator;multiply-two-numbers;",
+  "line": 6,
+  "name": "o sistema envia os dados do produto \"\u003cproduto\u003e\"",
   "rows": [
     {
       "cells": [
-        "firstNumber",
-        "secondNumber",
-        "result"
+        "\u003cproduto\u003e",
+        "largura",
+        "altura",
+        "comprimento"
       ],
-      "line": 17,
-      "id": "calculator;multiply-two-numbers;;1"
+      "line": 7
     },
     {
       "cells": [
+        "itemA",
         "1",
-        "0",
-        "0"
+        "20",
+        "1.5",
+        "4.0"
       ],
-      "line": 18,
-      "id": "calculator;multiply-two-numbers;;2"
+      "line": 8
     },
     {
       "cells": [
+        "itemB",
         "2",
-        "2",
-        "4"
+        "30",
+        "2.5",
+        "5.0"
       ],
-      "line": 19,
-      "id": "calculator;multiply-two-numbers;;3"
+      "line": 9
     },
     {
       "cells": [
+        "itemC",
         "3",
-        "10",
-        "30"
+        "40",
+        "3.5",
+        "6.0"
       ],
-      "line": 20,
-      "id": "calculator;multiply-two-numbers;;4"
+      "line": 10
     }
   ],
-  "keyword": "Examples"
+  "keyword": "When "
 });
-formatter.before({
-  "duration": 33767,
-  "status": "passed"
+formatter.step({
+  "line": 11,
+  "name": "envia o tipo de entrega \"\u003ctipoEntrega\u003e\"",
+  "rows": [
+    {
+      "cells": [
+        "\u003ctipoEntrega\u003e"
+      ],
+      "line": 12
+    },
+    {
+      "cells": [
+        "PAC"
+      ],
+      "line": 13
+    },
+    {
+      "cells": [
+        "SEDEX"
+      ],
+      "line": 14
+    },
+    {
+      "cells": [
+        "SEDEX10"
+      ],
+      "line": 15
+    }
+  ],
+  "keyword": "And "
 });
-formatter.scenario({
+formatter.step({
+  "line": 16,
+  "name": "envia o endereco \u0027CEP\u0027",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 17,
+  "name": "o sistema recebe o \u0027valor_do_frete\u0027 e \u0027tempo_de_entrega\u0027",
+  "keyword": "Then "
+});
+formatter.step({
   "line": 18,
-  "name": "Multiply two numbers",
-  "description": "",
-  "id": "calculator;multiply-two-numbers;;2",
-  "type": "scenario",
-  "keyword": "Scenario Outline"
+  "name": "os valores sao salvos no sistema",
+  "keyword": "And "
 });
-formatter.step({
-  "line": 12,
-  "name": "I have a calculator",
-  "keyword": "Given "
-});
-formatter.step({
-  "line": 13,
-  "name": "I multiply 1 with 0",
-  "matchedColumns": [
-    0,
-    1
-  ],
-  "keyword": "When "
-});
-formatter.step({
-  "line": 14,
-  "name": "the result should be 0",
-  "matchedColumns": [
-    2
-  ],
-  "keyword": "Then "
-});
-formatter.match({
-  "location": "CalculadoraSteps.i_have_a_calculator()"
-});
+formatter.match({});
 formatter.result({
-  "duration": 33234,
-  "status": "passed"
+  "status": "undefined"
 });
-formatter.match({
-  "arguments": [
-    {
-      "val": "1",
-      "offset": 11
-    },
-    {
-      "val": "0",
-      "offset": 18
-    }
-  ],
-  "location": "CalculadoraSteps.i_mult_with(int,int)"
-});
+formatter.match({});
 formatter.result({
-  "duration": 134134,
-  "status": "passed"
+  "status": "undefined"
 });
-formatter.match({
-  "arguments": [
-    {
-      "val": "0",
-      "offset": 21
-    }
-  ],
-  "location": "CalculadoraSteps.the_result_should_be(int)"
-});
+formatter.match({});
 formatter.result({
-  "duration": 58007,
-  "status": "passed"
+  "status": "undefined"
 });
-formatter.before({
-  "duration": 23310,
-  "status": "passed"
-});
-formatter.scenario({
-  "line": 19,
-  "name": "Multiply two numbers",
-  "description": "",
-  "id": "calculator;multiply-two-numbers;;3",
-  "type": "scenario",
-  "keyword": "Scenario Outline"
-});
-formatter.step({
-  "line": 12,
-  "name": "I have a calculator",
-  "keyword": "Given "
-});
-formatter.step({
-  "line": 13,
-  "name": "I multiply 2 with 2",
-  "matchedColumns": [
-    0,
-    1
-  ],
-  "keyword": "When "
-});
-formatter.step({
-  "line": 14,
-  "name": "the result should be 4",
-  "matchedColumns": [
-    2
-  ],
-  "keyword": "Then "
-});
-formatter.match({
-  "location": "CalculadoraSteps.i_have_a_calculator()"
-});
+formatter.match({});
 formatter.result({
-  "duration": 15850,
-  "status": "passed"
+  "status": "undefined"
 });
-formatter.match({
-  "arguments": [
-    {
-      "val": "2",
-      "offset": 11
-    },
-    {
-      "val": "2",
-      "offset": 18
-    }
-  ],
-  "location": "CalculadoraSteps.i_mult_with(int,int)"
-});
+formatter.match({});
 formatter.result({
-  "duration": 97731,
-  "status": "passed"
+  "status": "undefined"
 });
-formatter.match({
-  "arguments": [
-    {
-      "val": "4",
-      "offset": 21
-    }
-  ],
-  "location": "CalculadoraSteps.the_result_should_be(int)"
-});
+formatter.match({});
 formatter.result({
-  "duration": 61022,
-  "status": "passed"
-});
-formatter.before({
-  "duration": 30093,
-  "status": "passed"
-});
-formatter.scenario({
-  "line": 20,
-  "name": "Multiply two numbers",
-  "description": "",
-  "id": "calculator;multiply-two-numbers;;4",
-  "type": "scenario",
-  "keyword": "Scenario Outline"
-});
-formatter.step({
-  "line": 12,
-  "name": "I have a calculator",
-  "keyword": "Given "
-});
-formatter.step({
-  "line": 13,
-  "name": "I multiply 3 with 10",
-  "matchedColumns": [
-    0,
-    1
-  ],
-  "keyword": "When "
-});
-formatter.step({
-  "line": 14,
-  "name": "the result should be 30",
-  "matchedColumns": [
-    2
-  ],
-  "keyword": "Then "
-});
-formatter.match({
-  "location": "CalculadoraSteps.i_have_a_calculator()"
-});
-formatter.result({
-  "duration": 16846,
-  "status": "passed"
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "3",
-      "offset": 11
-    },
-    {
-      "val": "10",
-      "offset": 18
-    }
-  ],
-  "location": "CalculadoraSteps.i_mult_with(int,int)"
-});
-formatter.result({
-  "duration": 101996,
-  "status": "passed"
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "30",
-      "offset": 21
-    }
-  ],
-  "location": "CalculadoraSteps.the_result_should_be(int)"
-});
-formatter.result({
-  "duration": 62694,
-  "status": "passed"
-});
-formatter.before({
-  "duration": 19750,
-  "status": "passed"
-});
-formatter.scenario({
-  "line": 22,
-  "name": "Division by zero",
-  "description": "",
-  "id": "calculator;division-by-zero",
-  "type": "scenario",
-  "keyword": "Scenario"
-});
-formatter.step({
-  "line": 23,
-  "name": "I have a calculator",
-  "keyword": "Given "
-});
-formatter.step({
-  "line": 24,
-  "name": "I divide 7 with 0",
-  "keyword": "When "
-});
-formatter.step({
-  "line": 25,
-  "name": "should show an error with a message:",
-  "keyword": "Then ",
-  "doc_string": {
-    "content_type": "",
-    "line": 26,
-    "value": "/ by zero"
-  }
-});
-formatter.match({
-  "location": "CalculadoraSteps.i_have_a_calculator()"
-});
-formatter.result({
-  "duration": 17690,
-  "status": "passed"
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "7",
-      "offset": 9
-    },
-    {
-      "val": "0",
-      "offset": 16
-    }
-  ],
-  "location": "CalculadoraSteps.i_div_with(int,int)"
-});
-formatter.result({
-  "duration": 124718,
-  "status": "passed"
-});
-formatter.match({
-  "location": "CalculadoraSteps.should_show_an_error(String)"
-});
-formatter.result({
-  "duration": 26648694,
-  "status": "passed"
-});
-formatter.before({
-  "duration": 26125,
-  "status": "passed"
-});
-formatter.scenario({
-  "line": 30,
-  "name": "Divide two numbers",
-  "description": "",
-  "id": "calculator;divide-two-numbers",
-  "type": "scenario",
-  "keyword": "Scenario"
-});
-formatter.step({
-  "line": 31,
-  "name": "I have a calculator",
-  "keyword": "Given "
-});
-formatter.step({
-  "line": 32,
-  "name": "I divide 9 with 3",
-  "keyword": "When "
-});
-formatter.step({
-  "line": 33,
-  "name": "the result should be 3",
-  "keyword": "Then "
-});
-formatter.match({
-  "location": "CalculadoraSteps.i_have_a_calculator()"
-});
-formatter.result({
-  "duration": 19323,
-  "status": "passed"
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "9",
-      "offset": 9
-    },
-    {
-      "val": "3",
-      "offset": 16
-    }
-  ],
-  "location": "CalculadoraSteps.i_div_with(int,int)"
-});
-formatter.result({
-  "duration": 101114,
-  "status": "passed"
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "3",
-      "offset": 21
-    }
-  ],
-  "location": "CalculadoraSteps.the_result_should_be(int)"
-});
-formatter.result({
-  "duration": 50558,
-  "status": "passed"
+  "status": "undefined"
 });
 });
