@@ -14,3 +14,4 @@ When o sistema envia os dados do <Produto> para os correios
 		
 And envia o "tipo" de entrega para os correios
 Then o sistema recebe o 'valor do frete' e salva no sistema 
+

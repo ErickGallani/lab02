@@ -1,4 +1,4 @@
-package br.unicamp.exemplo;
+package br.unicamp.bookstore;
 
 public class Calculadora {
 	private int result;
