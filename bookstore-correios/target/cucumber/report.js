@@ -34,21 +34,31 @@ formatter.step({
   "name": "sistema deve solicitar ao Correio o status da entrega",
   "keyword": "Then "
 });
-formatter.match({});
-formatter.result({
-  "status": "undefined"
+formatter.match({
+  "location": "ConsultarStatusEntrega.usuario_esta_logado_no_sistema()"
 });
-formatter.match({});
 formatter.result({
-  "status": "undefined"
+  "duration": 204548059,
+  "error_message": "cucumber.api.PendingException: TODO: implement me\r\n\tat br.unicamp.bookstore.steps.ConsultarStatusEntrega.usuario_esta_logado_no_sistema(ConsultarStatusEntrega.java:12)\r\n\tat ✽.Given usuario esta logado no sistema(features/ConsultStatusEntrega.feature:4)\r\n",
+  "status": "pending"
 });
-formatter.match({});
-formatter.result({
-  "status": "undefined"
+formatter.match({
+  "location": "ConsultarStatusEntrega.usuario_possui_codigo_de_rastreamento_associado_ao_produto()"
 });
-formatter.match({});
 formatter.result({
-  "status": "undefined"
+  "status": "skipped"
+});
+formatter.match({
+  "location": "ConsultarStatusEntrega.usuario_fornece_codigo_de_rastreamento_associado_ao_produto_ao_sistema()"
+});
+formatter.result({
+  "status": "skipped"
+});
+formatter.match({
+  "location": "ConsultarStatusEntrega.sistema_deve_solicitar_ao_Correio_o_status_da_entrega()"
+});
+formatter.result({
+  "status": "skipped"
 });
 formatter.scenario({
   "line": 12,
@@ -83,24 +93,36 @@ formatter.step({
   "name": "o Sistema exibe o Status de Entrega do Pedido ao Usuario",
   "keyword": "And "
 });
-formatter.match({});
-formatter.result({
-  "status": "undefined"
+formatter.match({
+  "location": "ConsultarStatusEntrega.usuario_esta_logado_no_sistema()"
 });
-formatter.match({});
 formatter.result({
-  "status": "undefined"
+  "duration": 265988,
+  "error_message": "cucumber.api.PendingException: TODO: implement me\r\n\tat br.unicamp.bookstore.steps.ConsultarStatusEntrega.usuario_esta_logado_no_sistema(ConsultarStatusEntrega.java:12)\r\n\tat ✽.Given usuario esta logado no sistema(features/ConsultStatusEntrega.feature:14)\r\n",
+  "status": "pending"
 });
-formatter.match({});
-formatter.result({
-  "status": "undefined"
+formatter.match({
+  "location": "ConsultarStatusEntrega.usuario_fornece_o_status_de_entrega_do_seu_pedido()"
 });
-formatter.match({});
 formatter.result({
-  "status": "undefined"
+  "status": "skipped"
 });
-formatter.match({});
+formatter.match({
+  "location": "ConsultarStatusEntrega.o_Sistema_fornece_aos_Correios_o_Codigo_de_Rastreamento_associado_ao_Produto()"
+});
 formatter.result({
-  "status": "undefined"
+  "status": "skipped"
+});
+formatter.match({
+  "location": "ConsultarStatusEntrega.os_Correios_fornece_ao_Sistema_o_Status_de_entrega_do_pedido()"
+});
+formatter.result({
+  "status": "skipped"
+});
+formatter.match({
+  "location": "ConsultarStatusEntrega.o_Sistema_exibe_o_Status_de_Entrega_do_Pedido_ao_Usuario()"
+});
+formatter.result({
+  "status": "skipped"
 });
 });
