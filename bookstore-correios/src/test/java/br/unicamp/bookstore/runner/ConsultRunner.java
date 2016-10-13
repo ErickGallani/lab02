@@ -12,6 +12,7 @@ import cucumber.api.junit.Cucumber;
 	        features = "classpath:features/ConsultStatusEntrega.feature"
 	)
 
-	public class ConsultRunner {		
+	public class ConsultRunner {
+		
 	}
 

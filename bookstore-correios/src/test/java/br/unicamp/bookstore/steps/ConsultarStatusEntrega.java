@@ -50,8 +50,7 @@ public class ConsultarStatusEntrega {
 
 	@Then("^o Sistema exibe o Status de Entrega do Pedido ao Usuario$")
 	public void o_Sistema_exibe_o_Status_de_Entrega_do_Pedido_ao_Usuario() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-		
+	    // Write code here that turns the phrase above into concrete actions		
 	    throw new PendingException();
 	}
 
