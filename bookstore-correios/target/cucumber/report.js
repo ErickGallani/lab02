@@ -31,7 +31,7 @@ formatter.step({
   "rows": [
     {
       "cells": [
-        "\u003cproduto\u003e",
+        "produto",
         "largura",
         "altura",
         "comprimento"
@@ -40,7 +40,6 @@ formatter.step({
     },
     {
       "cells": [
-        "itemA",
         "1",
         "20",
         "1.5",
@@ -50,7 +49,6 @@ formatter.step({
     },
     {
       "cells": [
-        "itemB",
         "2",
         "30",
         "2.5",
@@ -60,7 +58,6 @@ formatter.step({
     },
     {
       "cells": [
-        "itemC",
         "3",
         "40",
         "3.5",
@@ -77,7 +74,7 @@ formatter.step({
   "rows": [
     {
       "cells": [
-        "\u003ctipoEntrega\u003e"
+        "tipoEntrega"
       ],
       "line": 12
     },
@@ -128,6 +125,166 @@ formatter.result({
 formatter.match({});
 formatter.result({
   "status": "undefined"
+});
+formatter.match({});
+formatter.result({
+  "status": "undefined"
+});
+formatter.match({});
+formatter.result({
+  "status": "undefined"
+});
+formatter.match({});
+formatter.result({
+  "status": "undefined"
+});
+formatter.scenario({
+  "line": 20,
+  "name": "CEP invalido",
+  "description": "",
+  "id": "calcular-frete-e-tempo-de-entrega-previsto;cep-invalido",
+  "type": "scenario",
+  "keyword": "Scenario"
+});
+formatter.step({
+  "line": 21,
+  "name": "um \"produto\" valido",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 22,
+  "name": "o cliente solicita ao sistema calucar o valor do frete e informa um \"CEP\" invalido",
+  "keyword": "When "
+});
+formatter.step({
+  "line": 23,
+  "name": "o sistema apresenta um erro com a mensagem",
+  "keyword": "Then ",
+  "doc_string": {
+    "content_type": "",
+    "line": 24,
+    "value": "\tO sistema solicita a correcao dos dados.\t\t"
+  }
+});
+formatter.match({});
+formatter.result({
+  "status": "undefined"
+});
+formatter.match({});
+formatter.result({
+  "status": "undefined"
+});
+formatter.match({});
+formatter.result({
+  "status": "undefined"
+});
+formatter.scenario({
+  "line": 28,
+  "name": "Sistema de servi�o do correios retornou erro na validacao do CEP",
+  "description": "",
+  "id": "calcular-frete-e-tempo-de-entrega-previsto;sistema-de-servi�o-do-correios-retornou-erro-na-validacao-do-cep",
+  "type": "scenario",
+  "keyword": "Scenario"
+});
+formatter.step({
+  "line": 29,
+  "name": "um \"produto\" e \"CEP\" valido",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 30,
+  "name": "o cliente solicita ao sistema calucar o valor do frete e informa um \"CEP\" valido",
+  "keyword": "When "
+});
+formatter.step({
+  "line": 31,
+  "name": "o sistema apresenta um erro com a mensagem",
+  "keyword": "Then ",
+  "doc_string": {
+    "content_type": "",
+    "line": 32,
+    "value": "\tSe o erro estiver no servi�o dos correios:\r\n\t\tO sistema informa o erro."
+  }
+});
+formatter.match({});
+formatter.result({
+  "status": "undefined"
+});
+formatter.match({});
+formatter.result({
+  "status": "undefined"
+});
+formatter.match({});
+formatter.result({
+  "status": "undefined"
+});
+formatter.scenario({
+  "line": 37,
+  "name": "Erro no tempo de entrega",
+  "description": "",
+  "id": "calcular-frete-e-tempo-de-entrega-previsto;erro-no-tempo-de-entrega",
+  "type": "scenario",
+  "keyword": "Scenario"
+});
+formatter.step({
+  "line": 38,
+  "name": "um \"produto\" e \"CEP\" valido",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 39,
+  "name": "o cliente solicita ao sistema que calcule o tempo do frete",
+  "keyword": "When "
+});
+formatter.step({
+  "line": 40,
+  "name": "o sistema retorna com o tempo invalido",
+  "keyword": "Then ",
+  "doc_string": {
+    "content_type": "",
+    "line": 41,
+    "value": "\tO sistema informa o erro."
+  }
+});
+formatter.match({});
+formatter.result({
+  "status": "undefined"
+});
+formatter.match({});
+formatter.result({
+  "status": "undefined"
+});
+formatter.match({});
+formatter.result({
+  "status": "undefined"
+});
+formatter.scenario({
+  "line": 44,
+  "name": "Erro no calculo do valor do frete e tempo de entrega",
+  "description": "",
+  "id": "calcular-frete-e-tempo-de-entrega-previsto;erro-no-calculo-do-valor-do-frete-e-tempo-de-entrega",
+  "type": "scenario",
+  "keyword": "Scenario"
+});
+formatter.step({
+  "line": 45,
+  "name": "um \"produto\" medidas invalidas e \"CEP\" valido",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 46,
+  "name": "o cliente solicita ao sistema que calcule o tempo do frete",
+  "keyword": "When "
+});
+formatter.step({
+  "line": 47,
+  "name": "o sistema apresenta um erro com a mensagem",
+  "keyword": "Then ",
+  "doc_string": {
+    "content_type": "",
+    "line": 48,
+    "value": "\tO sistema informa o erro."
+  }
 });
 formatter.match({});
 formatter.result({
