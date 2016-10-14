@@ -2,11 +2,9 @@ package br.unicamp.bookstore;
 
 public class CalcFreteTempo {
 
-	Produto produto;
+	private String tipoDeEntrega;
 
-	protected String tipoDeEntrega;
-
-	protected long cep;
+	private long cep;
 
 	public CalcFreteTempo(String tipoDeEntrega, long cep) {
 		this.tipoDeEntrega = tipoDeEntrega;
@@ -14,30 +12,23 @@ public class CalcFreteTempo {
 
 	}
 
-	public CalcFreteTempo(Produto produto, String tipoDeEntrega, long cep) {
-		super();
-		this.produto = produto;
-		this.tipoDeEntrega = tipoDeEntrega;
-		this.cep = cep;
-	}
-
 	public CalcFreteTempo() {
 		super();
 	}
 
-	public String getTipoDeEntrega() {
+	private String getTipoDeEntrega() {
 		return tipoDeEntrega;
 	}
 
-	public void setTipoDeEntrega(String tipoDeEntrega) {
+	private void setTipoDeEntrega(String tipoDeEntrega) {
 		this.tipoDeEntrega = tipoDeEntrega;
 	}
 
-	public long getCep() {
+	private long getCep() {
 		return cep;
 	}
 
-	public void setCep(long cep) {
+	private void setCep(long cep) {
 		this.cep = cep;
 	}
 

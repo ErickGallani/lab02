@@ -27,97 +27,41 @@ formatter.step({
 });
 formatter.step({
   "line": 6,
-  "name": "o sistema envia os dados do produto \"produto\" And \"tipoDeEntrega\" And \u0027CEP\u0027",
-  "rows": [
-    {
-      "cells": [
-        "produto",
-        "largura",
-        "altura",
-        "comprimento"
-      ],
-      "line": 8
-    },
-    {
-      "cells": [
-        "1",
-        "20",
-        "1.5",
-        "4.0"
-      ],
-      "line": 9
-    },
-    {
-      "cells": [
-        "2",
-        "30",
-        "2.5",
-        "5.0"
-      ],
-      "line": 10
-    },
-    {
-      "cells": [
-        "3",
-        "40",
-        "3.5",
-        "6.0"
-      ],
-      "line": 11
-    }
-  ],
+  "name": "o sistema envia os dados do produto produto o tipoDeEntrega e CEP",
   "keyword": "When "
 });
 formatter.step({
-  "line": 12,
-  "name": "o sistema recebe o \u0027valor_do_frete\u0027 e \u0027tempo_de_entrega\u0027",
+  "line": 7,
+  "name": "o sistema recebe o valor_do_frete e tempo_de_entrega",
   "keyword": "Then "
 });
 formatter.step({
-  "line": 13,
+  "line": 8,
   "name": "os valores sao salvos no sistema",
   "keyword": "And "
 });
-formatter.match({
-  "location": "CalcFreteTempoSteps.que_solicito_ao_sistema_para_calcular_o_frete_e_o_tempo_de_entrega()"
-});
+formatter.match({});
 formatter.result({
-  "duration": 280659680,
-  "status": "passed"
+  "status": "undefined"
 });
 formatter.match({
-  "arguments": [
-    {
-      "val": "produto",
-      "offset": 37
-    },
-    {
-      "val": "tipoDeEntrega",
-      "offset": 51
-    }
-  ],
-  "location": "CalcFreteTempoSteps.o_sistema_envia_os_dados_do_produto_And_And_CEP(String,String,DataTable)"
+  "location": "CalcFreteTempoSteps.o_sistema_envia_os_dados_do_produto_produto_o_tipoDeEntrega_e_CEP()"
 });
 formatter.result({
-  "duration": 8328040,
-  "status": "passed"
+  "status": "skipped"
 });
 formatter.match({
   "location": "CalcFreteTempoSteps.o_sistema_recebe_o_valor_do_frete_e_tempo_de_entrega()"
 });
 formatter.result({
-  "duration": 45640,
-  "status": "passed"
+  "status": "skipped"
 });
-formatter.match({
-  "location": "CalcFreteTempoSteps.os_valores_sao_salvos_no_sistema()"
-});
+formatter.match({});
 formatter.result({
-  "duration": 60080,
-  "status": "passed"
+  "status": "undefined"
 });
 formatter.scenario({
-  "line": 15,
+  "line": 10,
   "name": "CEP invalido",
   "description": "",
   "id": "calcular-frete-e-tempo-de-entrega-previsto;cep-invalido",
@@ -125,60 +69,45 @@ formatter.scenario({
   "keyword": "Scenario"
 });
 formatter.step({
-  "line": 16,
-  "name": "um \"produto\" valido",
+  "line": 11,
+  "name": "um produto valido",
   "keyword": "Given "
 });
 formatter.step({
-  "line": 17,
-  "name": "o cliente solicita ao sistema calucar o valor do frete e informa um \"CEP\" invalido",
+  "line": 12,
+  "name": "o cliente solicita ao sistema calucar o valor do frete e informa um CEP invalido",
   "keyword": "When "
 });
 formatter.step({
-  "line": 18,
+  "line": 13,
   "name": "o sistema apresenta um erro com a mensagem",
   "keyword": "Then ",
   "doc_string": {
     "content_type": "",
-    "line": 19,
+    "line": 14,
     "value": "\tO sistema solicita a correcao dos dados.\t\t"
   }
 });
 formatter.match({
-  "arguments": [
-    {
-      "val": "produto",
-      "offset": 4
-    }
-  ],
-  "location": "CalcFreteTempoSteps.um_valido(String)"
+  "location": "CalcFreteTempoSteps.um_produto_valido()"
 });
 formatter.result({
-  "duration": 214480,
+  "duration": 347233040,
   "status": "passed"
 });
 formatter.match({
-  "arguments": [
-    {
-      "val": "CEP",
-      "offset": 69
-    }
-  ],
-  "location": "CalcFreteTempoSteps.o_cliente_solicita_ao_sistema_calucar_o_valor_do_frete_e_informa_um_invalido(String)"
+  "location": "CalcFreteTempoSteps.o_cliente_solicita_ao_sistema_calucar_o_valor_do_frete_e_informa_um_CEP_invalido()"
 });
 formatter.result({
-  "duration": 178840,
+  "duration": 45320,
   "status": "passed"
 });
-formatter.match({
-  "location": "CalcFreteTempoSteps.o_sistema_apresenta_um_erro_com_a_mensagem(String)"
-});
+formatter.match({});
 formatter.result({
-  "duration": 159680,
-  "status": "passed"
+  "status": "undefined"
 });
 formatter.scenario({
-  "line": 23,
+  "line": 18,
   "name": "Sistema de servi�o do correios retornou erro na validacao do CEP",
   "description": "",
   "id": "calcular-frete-e-tempo-de-entrega-previsto;sistema-de-servi�o-do-correios-retornou-erro-na-validacao-do-cep",
@@ -186,64 +115,45 @@ formatter.scenario({
   "keyword": "Scenario"
 });
 formatter.step({
-  "line": 24,
-  "name": "um \"produto\" e \"CEP\" valido",
+  "line": 19,
+  "name": "um produto e CEP valido",
   "keyword": "Given "
 });
 formatter.step({
-  "line": 25,
-  "name": "o cliente solicita ao sistema calucar o valor do frete e informa um \"CEP\" valido",
+  "line": 20,
+  "name": "o cliente solicita ao sistema calucar o valor do frete e informa um CEP valido",
   "keyword": "When "
 });
 formatter.step({
-  "line": 26,
+  "line": 21,
   "name": "o sistema apresenta um erro com a mensagem",
   "keyword": "Then ",
   "doc_string": {
     "content_type": "",
-    "line": 27,
+    "line": 22,
     "value": "\tSe o erro estiver no servi�o dos correios:\r\n\t\tO sistema informa o erro."
   }
 });
 formatter.match({
-  "arguments": [
-    {
-      "val": "produto",
-      "offset": 4
-    },
-    {
-      "val": "CEP",
-      "offset": 16
-    }
-  ],
-  "location": "CalcFreteTempoSteps.um_e_valido(String,String)"
+  "location": "CalcFreteTempoSteps.um_produto_e_CEP_valido()"
 });
 formatter.result({
-  "duration": 215720,
+  "duration": 122400,
   "status": "passed"
 });
 formatter.match({
-  "arguments": [
-    {
-      "val": "CEP",
-      "offset": 69
-    }
-  ],
-  "location": "CalcFreteTempoSteps.o_cliente_solicita_ao_sistema_calucar_o_valor_do_frete_e_informa_um_valido(String)"
+  "location": "CalcFreteTempoSteps.o_cliente_solicita_ao_sistema_calucar_o_valor_do_frete_e_informa_um_CEP_valido()"
 });
 formatter.result({
-  "duration": 105320,
+  "duration": 50400,
   "status": "passed"
 });
-formatter.match({
-  "location": "CalcFreteTempoSteps.o_sistema_apresenta_um_erro_com_a_mensagem(String)"
-});
+formatter.match({});
 formatter.result({
-  "duration": 96680,
-  "status": "passed"
+  "status": "undefined"
 });
 formatter.scenario({
-  "line": 32,
+  "line": 27,
   "name": "Erro no tempo de entrega",
   "description": "",
   "id": "calcular-frete-e-tempo-de-entrega-previsto;erro-no-tempo-de-entrega",
@@ -251,58 +161,42 @@ formatter.scenario({
   "keyword": "Scenario"
 });
 formatter.step({
-  "line": 33,
-  "name": "um \"produto\" e \"CEP\" valido",
+  "line": 28,
+  "name": "um produto e CEP valido",
   "keyword": "Given "
 });
 formatter.step({
-  "line": 34,
+  "line": 29,
   "name": "o cliente solicita ao sistema que calcule o tempo do frete",
   "keyword": "When "
 });
 formatter.step({
-  "line": 35,
+  "line": 30,
   "name": "o sistema retorna com o tempo invalido",
   "keyword": "Then ",
   "doc_string": {
     "content_type": "",
-    "line": 36,
+    "line": 31,
     "value": "\tO sistema informa o erro."
   }
 });
 formatter.match({
-  "arguments": [
-    {
-      "val": "produto",
-      "offset": 4
-    },
-    {
-      "val": "CEP",
-      "offset": 16
-    }
-  ],
-  "location": "CalcFreteTempoSteps.um_e_valido(String,String)"
+  "location": "CalcFreteTempoSteps.um_produto_e_CEP_valido()"
 });
 formatter.result({
-  "duration": 221760,
+  "duration": 131440,
   "status": "passed"
 });
-formatter.match({
-  "location": "CalcFreteTempoSteps.o_cliente_solicita_ao_sistema_que_calcule_o_tempo_do_frete()"
-});
+formatter.match({});
 formatter.result({
-  "duration": 46840,
-  "status": "passed"
+  "status": "undefined"
 });
-formatter.match({
-  "location": "CalcFreteTempoSteps.o_sistema_retorna_com_o_tempo_invalido(String)"
-});
+formatter.match({});
 formatter.result({
-  "duration": 115960,
-  "status": "passed"
+  "status": "undefined"
 });
 formatter.scenario({
-  "line": 39,
+  "line": 34,
   "name": "Erro no calculo do valor do frete e tempo de entrega",
   "description": "",
   "id": "calcular-frete-e-tempo-de-entrega-previsto;erro-no-calculo-do-valor-do-frete-e-tempo-de-entrega",
@@ -310,54 +204,38 @@ formatter.scenario({
   "keyword": "Scenario"
 });
 formatter.step({
-  "line": 40,
-  "name": "um \"produto\" medidas invalidas e \"CEP\" valido",
+  "line": 35,
+  "name": "um produto medidas invalidas e CEP valido",
   "keyword": "Given "
 });
 formatter.step({
-  "line": 41,
+  "line": 36,
   "name": "o cliente solicita ao sistema que calcule o tempo do frete",
   "keyword": "When "
 });
 formatter.step({
-  "line": 42,
+  "line": 37,
   "name": "o sistema apresenta um erro com a mensagem",
   "keyword": "Then ",
   "doc_string": {
     "content_type": "",
-    "line": 43,
+    "line": 38,
     "value": "\tO sistema informa o erro."
   }
 });
 formatter.match({
-  "arguments": [
-    {
-      "val": "produto",
-      "offset": 4
-    },
-    {
-      "val": "CEP",
-      "offset": 34
-    }
-  ],
-  "location": "CalcFreteTempoSteps.um_medidas_invalidas_e_valido(String,String)"
+  "location": "CalcFreteTempoSteps.um_produto_medidas_invalidas_e_CEP_valido()"
 });
 formatter.result({
-  "duration": 223800,
+  "duration": 132640,
   "status": "passed"
 });
-formatter.match({
-  "location": "CalcFreteTempoSteps.o_cliente_solicita_ao_sistema_que_calcule_o_tempo_do_frete()"
-});
+formatter.match({});
 formatter.result({
-  "duration": 46280,
-  "status": "passed"
+  "status": "undefined"
 });
-formatter.match({
-  "location": "CalcFreteTempoSteps.o_sistema_apresenta_um_erro_com_a_mensagem(String)"
-});
+formatter.match({});
 formatter.result({
-  "duration": 97960,
-  "status": "passed"
+  "status": "undefined"
 });
 });
