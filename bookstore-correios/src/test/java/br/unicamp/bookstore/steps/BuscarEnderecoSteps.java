@@ -35,7 +35,8 @@ public class BuscarEnderecoSteps {
 	public void enviar_o_numero_de_CEP_para_os_Correios() throws Throwable {
 
 		stubFor(get(urlEqualTo("/viacep/ws/" + this.cep + "/json/"))
-				.willReturn(aResponse().withHeader("Content-Type", "application/json; charset=utf-8").withBody(
+				.willReturn(aResponse().
+						withHeader("Content-Type", "application/json; charset=utf-8").withBody(
 						"{\"cep\": \"13806-670\",\"logradouro\": \"Rua Francisco Antônio Gonçalves\",\"complemento\": \"\",\"bairro\": \"Jardim Primavera\",\"localidade\": \"Mogi Mirim\",\"uf\": \"SP\",\"unidade\": \"\",\"ibge\": \"3530805\",\"gia\": \"4560\"}")));
 
 		/*

@@ -1,58 +1,84 @@
 package br.unicamp.bookstore.steps;
 
+import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
+import static com.github.tomakehurst.wiremock.client.WireMock.get;
+import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
+import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
+import br.unicamp.bookstore.StatusEntrega;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class ConsultarStatusEntrega {
+	
+	private StatusEntrega entrega = new StatusEntrega();
+	
 	@Given("^usuario esta logado no sistema$")
 	public void usuario_esta_logado_no_sistema() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
+	    if (!(entrega.getloggedUser()))
+	   	   throw new PendingException();	
 	}
 
 	@Given("^usuario possui codigo de rastreamento associado ao produto$")
 	public void usuario_possui_codigo_de_rastreamento_associado_ao_produto() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
+		if (entrega.getTrackingCode().isEmpty())
+	        throw new PendingException();
 	}
 
 	@When("^usuario fornece codigo de rastreamento associado ao produto ao sistema$")
 	public void usuario_fornece_codigo_de_rastreamento_associado_ao_produto_ao_sistema() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
+		String trackingCode = "SQ458226057BR";
+	    entrega.setTrackingCode(trackingCode);
 	}
 
 	@Then("^sistema deve solicitar ao Correio o status da entrega$")
 	public void sistema_deve_solicitar_ao_Correio_o_status_da_entrega() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
-	}
-
-	@Given("^usuario fornece o status de entrega do seu pedido$")
-	public void usuario_fornece_o_status_de_entrega_do_seu_pedido() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
-	}
-
-	@When("^o Sistema fornece aos Correios o Codigo de Rastreamento associado ao Produto$")
-	public void o_Sistema_fornece_aos_Correios_o_Codigo_de_Rastreamento_associado_ao_Produto() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
-	}
-
-	@Then("^os Correios fornece ao Sistema o Status de entrega do pedido$")
-	public void os_Correios_fornece_ao_Sistema_o_Status_de_entrega_do_pedido() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
+		String result=  "<?xml version=\"1.0\" encoding=\"iso-8859-1\" ?> " +
+						"<sroxml> " +
+						"<versao>1.0</versao> " +
+						"<qtd>2</qtd> " +
+						"<TipoPesquisa>Lista de Objetos</TipoPesquisa> " +
+						"<TipoResultado>Todos os eventos</TipoResultado> " +
+						"<objeto> " +
+						"<numero>SQ458226057BR</numero> " +
+						"<evento> " +
+						"<tipo>BDE</tipo> " +
+						"<status>01</status> " +
+						"<data>05/07/2004</data> " +
+						"<hora>11:56</hora> " +
+						"<descricao>Entregue</descricao> " +
+						"<local>CDD ALVORADA</local> " +
+						"<codigo>94800971</codigo> " +
+						"<cidade>ALVORADA</cidade> " +
+						"<uf>RS</uf> " +
+						"</evento> " +
+						"<evento> " +
+						"<tipo>OEC</tipo> " +
+						"<status>01</status> " +
+						"<data>05/07/2004</data> " +
+						"<hora>09:04</hora> " +
+						"<descricao>Saiu para entrega</descricao> " +
+						"<local>CDD ALVORADA</local> " +
+						"<codigo>94800971</codigo> " +
+						"<cidade>ALVORADA</cidade> " +
+						"<uf>RS</uf> " +
+						"</evento> " +
+						"</objeto> " +
+						"</sroxml> ";
+		
+		this.entrega.setResult(result);
+				
+		stubFor(get(urlEqualTo("http://websro.correios.com.br/sro_bin/sroii_xml.eventos")).
+				willReturn(aResponse().
+				withHeader("Content-Type", "application/x-www-form-urlencoded").
+				withBody(result)));
 	}
 
 	@Then("^o Sistema exibe o Status de Entrega do Pedido ao Usuario$")
 	public void o_Sistema_exibe_o_Status_de_Entrega_do_Pedido_ao_Usuario() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions		
-	    throw new PendingException();
+	    if (this.entrega.getResult().isEmpty())	
+	        throw new PendingException();
 	}
-
 
 }
