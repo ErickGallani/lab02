@@ -1,6 +1,6 @@
 # encoding: UTF-8
 Feature: Calcular frete e tempo de entrega previsto
-
+	
 	Scenario: Eu como usuario desejo simular o calculo do frete que sera cobrado pela do entrega do pedido e o tempo de entrega previsto
 		Given que solicito ao sistema para calcular o frete e o tempo de entrega
 		When o sistema envia os dados do produto "produto" And "tipoDeEntrega" And 'CEP'

@@ -1,7 +1,10 @@
 package br.unicamp.bookstore.runner;
 
 import org.junit.runner.RunWith;
+<<<<<<< HEAD
 import java.lang.annotation.Annotation;
+=======
+>>>>>>> master
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
