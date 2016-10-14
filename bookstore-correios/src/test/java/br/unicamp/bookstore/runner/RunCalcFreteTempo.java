@@ -8,15 +8,13 @@ import static com.github.tomakehurst.wiremock.client.WireMock.get;
 import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
 import com.github.tomakehurst.wiremock.WireMockServer;
+
 import org.junit.AfterClass;
 import org.junit.Before;
 
 
 import org.junit.runner.RunWith;
-
-
 import cucumber.api.CucumberOptions;
-
 import cucumber.api.junit.Cucumber;
 
 
@@ -33,13 +31,11 @@ public class RunCalcFreteTempo {
 		public static void runBeforeClass() {
 			wireMockServer = new WireMockServer(wireMockConfig().port(8089));
 			configureFor(8089);
-			wireMockServer.start();
-		}
-				
+			wireMockServer.start();		
+		}	
 
 		@AfterClass
 		public static void runAffterClass() {
 			wireMockServer.stop();
 		}
-
 }	
