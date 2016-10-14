@@ -17,7 +17,7 @@ public class ServerRequest implements IServerRequest {
 	private HttpPost httppost;
 	private List<NameValuePair> params;
 	
-	public ServerRequest(String uri) {
+	ServerRequest(String uri) {
 		this.httpclient = HttpClients.createDefault();
 		this.httppost = new HttpPost(uri);
 		this.params = new ArrayList<NameValuePair>();
