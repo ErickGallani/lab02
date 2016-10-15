@@ -1,9 +1,7 @@
 package br.unicamp.bookstore.steps;
 
-import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
-import static com.github.tomakehurst.wiremock.client.WireMock.get;
-import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
-import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
+import org.junit.Assert;
+import br.unicamp.bookstore.CorreriosComponente;
 import br.unicamp.bookstore.StatusEntrega;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
@@ -35,44 +33,43 @@ public class ConsultarStatusEntrega {
 	@Then("^sistema deve solicitar ao Correio o status da entrega$")
 	public void sistema_deve_solicitar_ao_Correio_o_status_da_entrega() throws Throwable {
 		String result=  "<?xml version=\"1.0\" encoding=\"iso-8859-1\" ?> " +
-						"<sroxml> " +
-						"<versao>1.0</versao> " +
-						"<qtd>2</qtd> " +
-						"<TipoPesquisa>Lista de Objetos</TipoPesquisa> " +
-						"<TipoResultado>Todos os eventos</TipoResultado> " +
-						"<objeto> " +
-						"<numero>SQ458226057BR</numero> " +
-						"<evento> " +
-						"<tipo>BDE</tipo> " +
-						"<status>01</status> " +
-						"<data>05/07/2004</data> " +
-						"<hora>11:56</hora> " +
-						"<descricao>Entregue</descricao> " +
-						"<local>CDD ALVORADA</local> " +
-						"<codigo>94800971</codigo> " +
-						"<cidade>ALVORADA</cidade> " +
-						"<uf>RS</uf> " +
-						"</evento> " +
-						"<evento> " +
-						"<tipo>OEC</tipo> " +
-						"<status>01</status> " +
-						"<data>05/07/2004</data> " +
-						"<hora>09:04</hora> " +
-						"<descricao>Saiu para entrega</descricao> " +
-						"<local>CDD ALVORADA</local> " +
-						"<codigo>94800971</codigo> " +
-						"<cidade>ALVORADA</cidade> " +
-						"<uf>RS</uf> " +
-						"</evento> " +
-						"</objeto> " +
-						"</sroxml> ";
-		
+				"<sroxml> " +
+				"<versao>1.0</versao> " +
+				"<qtd>2</qtd> " +
+				"<TipoPesquisa>Lista de Objetos</TipoPesquisa> " +
+				"<TipoResultado>Todos os eventos</TipoResultado> " +
+				"<objeto> " +
+				"<numero>SQ458226057BR</numero> " +
+				"<evento> " +
+				"<tipo>BDE</tipo> " +
+				"<status>01</status> " +
+				"<data>05/07/2004</data> " +
+				"<hora>11:56</hora> " +
+				"<descricao>Entregue</descricao> " +
+				"<local>CDD ALVORADA</local> " +
+				"<codigo>94800971</codigo> " +
+				"<cidade>ALVORADA</cidade> " +
+				"<uf>RS</uf> " +
+				"</evento> " +
+				"<evento> " +
+				"<tipo>OEC</tipo> " +
+				"<status>01</status> " +
+				"<data>05/07/2004</data> " +
+				"<hora>09:04</hora> " +
+				"<descricao>Saiu para entrega</descricao> " +
+				"<local>CDD ALVORADA</local> " +
+				"<codigo>94800971</codigo> " +
+				"<cidade>ALVORADA</cidade> " +
+				"<uf>RS</uf> " +
+				"</evento> " +
+				"</objeto> " +
+				"</sroxml> ";
+	
+		CorreriosComponente correios = new CorreriosComponente("http://localhost:8089");	
+		String response = correios.buscarStatusEntrega(this.entrega.getTrackingCode());		
+		Assert.assertNotNull(response);
+		Assert.assertEquals(result, response);		
 		this.entrega.setResult(result);
-				
-		stubFor(get(urlEqualTo("http://websro.correios.com.br/sro_bin/sroii_xml.eventos")).
-				willReturn(aResponse().
-				withHeader("Content-Type", "application/x-www-form-urlencoded").
-				withBody(result)));
 	}
 
 	@Then("^o Sistema exibe o Status de Entrega do Pedido ao Usuario$")
