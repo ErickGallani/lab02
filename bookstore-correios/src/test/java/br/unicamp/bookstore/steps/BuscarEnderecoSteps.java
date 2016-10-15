@@ -7,12 +7,16 @@ import java.io.FileReader;
 
 import org.json.JSONObject;
 import org.junit.AfterClass;
+import org.junit.Assert;
 import org.skyscreamer.jsonassert.JSONParser;
 
 import com.github.tomakehurst.wiremock.WireMockServer;
 import com.github.tomakehurst.wiremock.http.Fault;
 
+import br.unicamp.bookstore.CorreriosComponente;
 import br.unicamp.bookstore.Endereco;
+import br.unicamp.bookstore.service.IServerRequest;
+import br.unicamp.bookstore.service.ServerRequestFactory;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -37,7 +41,7 @@ public class BuscarEnderecoSteps {
 		stubFor(get(urlEqualTo("/viacep/ws/" + this.cep + "/json/"))
 				.willReturn(aResponse().
 						withHeader("Content-Type", "application/json; charset=utf-8").withBody(
-						"{\"cep\": \"13806-670\",\"logradouro\": \"Rua Francisco Antônio Gonçalves\",\"complemento\": \"\",\"bairro\": \"Jardim Primavera\",\"localidade\": \"Mogi Mirim\",\"uf\": \"SP\",\"unidade\": \"\",\"ibge\": \"3530805\",\"gia\": \"4560\"}")));
+						"{\"cep\": \"13806-670\",\"logradouro\": \"Rua Francisco Antonio Goncalves\",\"complemento\": \"\",\"bairro\": \"Jardim Primavera\",\"localidade\": \"Mogi Mirim\",\"uf\": \"SP\",\"unidade\": \"\",\"ibge\": \"3530805\",\"gia\": \"4560\"}")));
 
 		/*
 		 * this.end = new Endereco();
@@ -54,7 +58,12 @@ public class BuscarEnderecoSteps {
 
 	@Then("^o sistema deve exibir o endereco$")
 	public void o_sistema_deve_exibir_o_endereco() throws Throwable {
-		// Deve ser exibido o endereço
+		CorreriosComponente correios = new CorreriosComponente("http://localhost:8089");
+		
+		String response = correios.buscaEndereco(this.cep);
+		
+		Assert.assertNotNull(response);
+		Assert.assertEquals("{\"cep\": \"13806-670\",\"logradouro\": \"Rua Francisco Antonio Goncalves\",\"complemento\": \"\",\"bairro\": \"Jardim Primavera\",\"localidade\": \"Mogi Mirim\",\"uf\": \"SP\",\"unidade\": \"\",\"ibge\": \"3530805\",\"gia\": \"4560\"}", response);
 	}
 
 	@Given("^que foi informado um CEP invalido$")

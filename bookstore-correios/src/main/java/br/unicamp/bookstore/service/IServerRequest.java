@@ -7,4 +7,5 @@ public interface IServerRequest {
 	void addParam(String key, String value);
 	void addParam(BasicNameValuePair basicNameValuePair);
 	HttpResponse sendPostRequest();
+	String sendGetRequest();
 }
