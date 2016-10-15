@@ -21,4 +21,11 @@ public class CorreriosComponente {
 		return serverRequest.sendGetRequest();
 	}
 	
+	public String calcularFreteTempoEntrega(Produto produto, String cep) {
+		IServerRequest serverRequest = 
+				ServerRequestFactory.CreateInstance(urlBase +  String.format(api_cep, cep));
+		
+		return serverRequest.sendGetRequest();
+	}
+	
 }
