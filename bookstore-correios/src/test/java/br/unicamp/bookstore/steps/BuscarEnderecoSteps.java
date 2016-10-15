@@ -14,7 +14,6 @@ import com.github.tomakehurst.wiremock.WireMockServer;
 import com.github.tomakehurst.wiremock.http.Fault;
 
 import br.unicamp.bookstore.CorreriosComponente;
-import br.unicamp.bookstore.Endereco;
 import br.unicamp.bookstore.service.IServerRequest;
 import br.unicamp.bookstore.service.ServerRequestFactory;
 import cucumber.api.java.Before;
@@ -23,7 +22,6 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class BuscarEnderecoSteps {
-	private Endereco end;
 	private static WireMockServer wireMockServer;
 	private String cep;
 
@@ -42,18 +40,6 @@ public class BuscarEnderecoSteps {
 				.willReturn(aResponse().
 						withHeader("Content-Type", "application/json; charset=utf-8").withBody(
 						"{\"cep\": \"13806-670\",\"logradouro\": \"Rua Francisco Antonio Goncalves\",\"complemento\": \"\",\"bairro\": \"Jardim Primavera\",\"localidade\": \"Mogi Mirim\",\"uf\": \"SP\",\"unidade\": \"\",\"ibge\": \"3530805\",\"gia\": \"4560\"}")));
-
-		/*
-		 * this.end = new Endereco();
-		 * end.setLogradouro(obj.getString("logradouro"));
-		 * end.setBairro(obj.getString("bairro"));
-		 * end.setCep(obj.getString("cep"));
-		 * end.setComplemento(obj.getString("complemento"));
-		 * end.setGia(obj.getString("gia")); end.setIbge(obj.getString("ibge"));
-		 * end.setLocalidade(obj.getString("localidade"));
-		 * end.setUf(obj.getString("uf"));
-		 * end.setUnidade(obj.getString("unidade"));
-		 */
 	}
 
 	@Then("^o sistema deve exibir o endereco$")
@@ -79,8 +65,8 @@ public class BuscarEnderecoSteps {
 	}
 
 	@Then("^deve ser exibido uma mensagem de erro$")
-	public void deve_ser_exibido_uma_mensagem_de_erro(String arg1) throws Throwable {
-		// Necessário mostrar uma mensagem de erro
+	public void deve_ser_exibido_uma_mensagem_de_erro(String msg) throws Throwable {
+		Assert.assertNotNull(msg);
 	}
 
 	@Given("^que foi informado um CEP valido, porem servico indisponivel$")
@@ -97,8 +83,8 @@ public class BuscarEnderecoSteps {
 	}
 
 	@Then("^deve ser exibida a mensagem de indisponibilidade:$")
-	public void deve_ser_exibida_a_mensagem_de_indisponibilidade(String arg1) throws Throwable {
-		// Necessário mostrar uma mensagem de erro
+	public void deve_ser_exibida_a_mensagem_de_indisponibilidade(String msg) throws Throwable {
+		Assert.assertNotNull(msg);
 	}
 
 	@Given("^que foi informado um CEP valido, porem servico lento$")
@@ -112,8 +98,8 @@ public class BuscarEnderecoSteps {
 	}
 
 	@Then("^deve ser exibido uma mensagem de erro servico lento$")
-	public void deve_ser_exibido_uma_mensagem_de_erro_servico_lento(String arg1) {
-		// Necessário mostrar uma mensagem de erro
+	public void deve_ser_exibido_uma_mensagem_de_erro_servico_lento(String msg) {
+		Assert.assertNotNull(msg);
 	}
 
 }
