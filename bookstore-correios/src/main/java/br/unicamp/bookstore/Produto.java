@@ -6,19 +6,17 @@ public class Produto {
 	private double largura;
 	private double altura;
 	private double comprimento;
+	private double diametro;
 	private String codigoRastreio;
 
-	public Produto() {
-		super();
-
-	}
-
-	public Produto(double peso, double largura, double altura, double comprimento, String codigoRastreio) {
+	public Produto(double peso, double largura, double altura, 
+			       double comprimento, double diametro, String codigoRastreio) {
 		super();
 		this.peso = peso;
 		this.largura = largura;
 		this.altura = altura;
 		this.comprimento = comprimento;
+		this.diametro = diametro;
 		this.codigoRastreio = codigoRastreio;
 	}
 
@@ -52,6 +50,14 @@ public class Produto {
 
 	public void setComprimento(double comprimento) {
 		this.comprimento = comprimento;
+	}
+	
+	public double getDiametro() {
+		return diametro;
+	}
+
+	public void setDiametro(double diametro) {
+		this.diametro = diametro;
 	}
 
 	public String getCodigoRastreio() {
