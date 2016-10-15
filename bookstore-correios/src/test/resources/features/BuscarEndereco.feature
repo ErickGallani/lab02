@@ -14,6 +14,15 @@ Scenario: CEP invalido
 	"""
 	/ CEP informado e invalido
 	"""
+	
+Scenario: CEP não encontrado
+	Given que foi informado um CEP invalido
+	When enviar o CEP invalido
+	Then deve ser exibido uma mensagem de erro 
+	"""
+	/ CEP informado e invalido
+	"""
+	
 Scenario: Servico indisponivel
 	Given que foi informado um CEP valido, porem servico indisponivel
 	When enviar o numero de CEP
